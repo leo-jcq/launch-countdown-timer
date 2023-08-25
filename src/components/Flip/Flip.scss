@@ -202,13 +202,50 @@
 
         display: inline-block;
 
-        font-size: 0.6em;
+        font-size: 0.7em;
         letter-spacing: 2px;
         text-align: center;
         text-transform: uppercase;
         color: $grayish-blue;
 
         margin-top: 16px;
+    }
+}
+
+@media screen and (min-width: $desktop-width) {
+    .flip {
+        width: 130px;
+        height: 130px;
+
+        &::before {
+            top: 12px;
+
+            border-radius: 24px;
+        }
+
+        & .clock {
+            font-size: 4.5em;
+
+            &::before {
+                border-radius: 0 0 9px 9px;
+            }
+
+            &::after {
+                border-radius: 9px 9px 0 0;
+            }
+        }
+
+        & .front {
+            border-radius: 9px 9px 0 0;
+        }
+
+        & .back {
+            border-radius: 0 0 9px 9px;
+        }
+
+        & .label {
+            margin-top: 40px;
+        }
     }
 }
 

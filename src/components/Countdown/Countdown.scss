@@ -1,6 +1,14 @@
+@import "../../scss/variables";
+
 .countdown {
     display: flex;
     gap: 16px;
     justify-content: center;
     align-items: center;
+
+    @media screen and (min-width: $desktop-width) {
+        & {
+            gap: 32px;
+        }
+    }
 }
