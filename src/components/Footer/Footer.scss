@@ -3,5 +3,19 @@
 .footer {
     display: flex;
     justify-content: center;
+    gap: 32px;
     align-items: center;
+
+    position: relative;
+    z-index: 10;
+
+    & .image {
+        & * {
+            transition: fill 0.2s ease;
+        }
+
+        &:hover * {
+            fill: $soft-red;
+        }
+    }
 }
