@@ -12,11 +12,17 @@ const Footer: FC = () => {
                 aria-label="Our Facebook">
                 {iconFacebook}
             </a>
-            <a href="https://pinterest.com" target="_blank" className="image"
+            <a
+                href="https://pinterest.com"
+                target="_blank"
+                className="image"
                 aria-label="Our Pinterest">
                 {iconPinterest}
             </a>
-            <a href="https://instagram.com" target="_blank" className="image"
+            <a
+                href="https://instagram.com"
+                target="_blank"
+                className="image"
                 aria-label="Our Instagram">
                 {iconInstagram}
             </a>
