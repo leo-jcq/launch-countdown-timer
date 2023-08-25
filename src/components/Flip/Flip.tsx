@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import useFlip from '../../hooks/useFlip';
 import './Flip.scss';
 
@@ -8,21 +8,29 @@ interface FlipProps {
 }
 
 const Flip: FC<FlipProps> = ({ value, label }) => {
+    const [firstRender, setFirstRender] = useState(true);
     const [before, setBefore] = useFlip(value.before);
     const [after, setAfter] = useFlip(value.after);
 
     const flipRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        setBefore(value.before);
-        setAfter(value.after);
+        // if first render, don't animate
+        if (firstRender) {
+            setFirstRender(false);
+        } else {
+            // animate
+            setBefore(value.before);
+            setAfter(value.after);
 
-        flipRef.current?.classList.add('animate');
+            flipRef.current?.classList.add('animate');
+        }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value.before, value.after]);
 
     const handleAnimationEnd = () => {
+        // set before to after
         setBefore(value.after);
         flipRef.current?.classList.remove('animate');
     };
