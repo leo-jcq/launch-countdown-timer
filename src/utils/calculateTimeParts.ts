@@ -5,40 +5,42 @@
  * @return {TimeParts} the time Parts
  */
 function calculateTimeParts(time: number): TimeParts {
-    // initialize temp variable
-    let temp = time;
-
-    // calculate seconds
-    const sec = Math.floor(time % 60);
-
-    // calculate minutes
-    temp /= 60;
-    const min = Math.floor(temp % 60);
-
-    // calculate hours
-    temp /= 60;
-    const hour = Math.floor(temp % 60);
+    // initialize variable
+    const oneMinute = 60;
+    const oneHour = oneMinute * 60;
+    const oneDay = oneHour * 24;
 
     // calculate days
-    temp /= 60;
-    const day = Math.floor(temp % 60);
+    const days = Math.floor(time / oneDay);
+    time %= oneDay;
+
+    // calculate hours
+    const hours = Math.floor(time / oneHour);
+    time %= oneHour;
+
+    // calculate minutes
+    const minutes = Math.floor(time / oneMinute);
+    time %= oneMinute;
+
+    // calculate seconds
+    const seconds = Math.floor(time);
 
     return {
         seconds: {
-            before: sec,
-            after: sec === 0 ? (min === 0 ? 0 : 59) : sec - 1
+            before: seconds,
+            after: seconds === 0 ? (minutes === 0 ? 0 : 59) : seconds - 1
         },
         minutes: {
-            before: min,
-            after: min === 0 ? (hour === 0 ? 0 : 59) : min - 1
+            before: minutes,
+            after: minutes === 0 ? (hours === 0 ? 0 : 59) : minutes - 1
         },
         hours: {
-            before: hour,
-            after: hour === 0 ? (day === 0 ? 0 : 23) : hour - 1
+            before: hours,
+            after: hours === 0 ? (days === 0 ? 0 : 23) : hours - 1
         },
         days: {
-            before: day,
-            after: day === 0 ? 0 : day - 1
+            before: days,
+            after: days === 0 ? 0 : days - 1
         }
     };
 }
