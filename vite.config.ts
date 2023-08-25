@@ -4,5 +4,5 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
-    base: '/launch-countdown-timer.git/'
+    base: '/launch-countdown-timer/'
 });
