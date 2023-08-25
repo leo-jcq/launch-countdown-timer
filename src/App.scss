@@ -4,7 +4,7 @@
     min-height: 100vh;
 
     background-color: $main-bg;
-    background-image: url("./bg-stars.svg");
+    background-image: url("../bg-stars.svg");
     background-position: center;
 
     display: flex;
@@ -28,7 +28,7 @@
         top: 0;
         left: 0;
 
-        background-image: url("./pattern-hills.svg");
+        background-image: url("../pattern-hills.svg");
         background-position: 110% 100%;
         background-repeat: no-repeat;
         background-size: 200%;
